@@ -11,7 +11,7 @@ const Picker = ({ visible, data, onSelect, onClose }) => {
             keyExtractor={(item) => item.id.toString()}
             renderItem={({ item }) => (
               <TouchableOpacity onPress={() => onSelect(item.id)} style={styles.itemContainer}>
-                <Text style={styles.itemText}>{`${item.firstName} ${item.lastName}`}</Text>
+                <Text style={styles.itemText}>{`${item.firstName} ${item.lastName} - ${item.iban}`}</Text>
               </TouchableOpacity>
             )}
           />

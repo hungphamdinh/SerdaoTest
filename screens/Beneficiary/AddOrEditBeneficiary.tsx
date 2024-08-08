@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { View, Button, StyleSheet } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import { useApp } from '../../store/AppContext';
-import InputField from '../../component/form/inputField';
+import InputField from '../../component/form/InputField';
 import { validateFields } from '../../utils';
 
 const AddOrEditBeneficiary = () => {

@@ -1,7 +1,7 @@
 import React from 'react';
 import { View, TextInput, Text, StyleSheet } from 'react-native';
 
-const InputField = ({ value, onChangeText, placeholder, error }) => {
+const InputField = ({ value, onChangeText, placeholder, error, ...props }) => {
   return (
     <View style={styles.inputContainer}>
       <TextInput
@@ -9,6 +9,7 @@ const InputField = ({ value, onChangeText, placeholder, error }) => {
         onChangeText={onChangeText}
         value={value}
         placeholder={placeholder}
+        {...props}
       />
       {error && <Text style={styles.errorText}>{error}</Text>}
     </View>

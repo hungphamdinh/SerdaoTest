@@ -2,7 +2,7 @@ import React, {useState} from 'react';
 import {View, Button, TouchableOpacity, Text, StyleSheet} from 'react-native';
 import {useApp} from '../../store/AppContext';
 import Picker from '../../component/Picker';
-import InputField from '../../component/form/inputField';
+import InputField from '../../component/form/InputField';
 import {validateFields} from '../../utils';
 
 const TransactionScreen = ({navigation}) => {
@@ -51,6 +51,7 @@ const TransactionScreen = ({navigation}) => {
         onChangeText={value => handleInputChange('amount', value)}
         placeholder="Enter amount"
         error={errors.amount}
+        keyboardType="number-pad"
       />
       <InputField
         value={form.name}
