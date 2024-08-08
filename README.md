@@ -1,8 +1,8 @@
 # Installation
 
-1. IOS
+Run these commands below.
 
-Just run
+1. IOS
 
 ```bash
     npx yarn iosInstall
