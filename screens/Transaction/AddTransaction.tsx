@@ -5,7 +5,7 @@ import Picker from '../../component/Picker';
 import InputField from '../../component/form/InputField';
 import {validateFields} from '../../utils';
 
-const TransactionScreen = ({navigation}) => {
+const AddTransaction = ({navigation}) => {
   const [form, setForm] = useState({amount: '', name: '', iban: ''});
   const [errors, setErrors] = useState({});
   const [pickerVisible, setPickerVisible] = useState(false);
@@ -102,4 +102,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default TransactionScreen;
+export default AddTransaction;

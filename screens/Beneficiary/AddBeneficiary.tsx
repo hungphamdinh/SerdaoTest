@@ -5,7 +5,7 @@ import { useApp } from '../../store/AppContext';
 import InputField from '../../component/form/InputField';
 import { validateFields } from '../../utils';
 
-const AddOrEditBeneficiary = () => {
+const AddBeneficiary = () => {
   const [form, setForm] = useState({ firstName: '', lastName: '', iban: '' });
   const [errors, setErrors] = useState({});
   const navigation = useNavigation();
@@ -67,4 +67,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default AddOrEditBeneficiary;
+export default AddBeneficiary;

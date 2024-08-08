@@ -2,8 +2,14 @@ import React from 'react';
 import {View, Text, FlatList, StyleSheet, TouchableOpacity} from 'react-native';
 import {useApp} from '../../store/AppContext';
 
+const Button = ({onPress, title}) => (
+  <TouchableOpacity style={styles.button} onPress={onPress}>
+    <Text style={styles.buttonText}>{title}</Text>
+  </TouchableOpacity>
+);
+
 const HomeScreen = ({navigation}) => {
-  const {transactions, balance} = useApp();
+  const {transactions, balance, clearAll} = useApp();
 
   const renderTransactionItem = ({item}) => (
     <View style={styles.item}>
@@ -23,21 +29,24 @@ const HomeScreen = ({navigation}) => {
       <Text style={styles.balanceText}>
         Current Balance: ${balance.toFixed(2)}
       </Text>
-      <TouchableOpacity
-        style={styles.button}
-        onPress={() => navigation.navigate('Transaction')}>
-        <Text style={styles.buttonText}>Add Transaction</Text>
-      </TouchableOpacity>
-      <TouchableOpacity
-        style={styles.button}
-        onPress={() => navigation.navigate('AddOrEditBeneficiary')}>
-        <Text style={styles.buttonText}>Add Beneficiary</Text>
-      </TouchableOpacity>
-      <TouchableOpacity
-        style={styles.button}
-        onPress={() => navigation.navigate('Beneficiaries')}>
-        <Text style={styles.buttonText}>View Beneficiaries</Text>
-      </TouchableOpacity>
+      <View style={styles.row}>
+        <Button
+          title={'Add Transaction'}
+          onPress={() => navigation.navigate('Transaction')}
+        />
+        <Button
+          title={'Add Beneficiary'}
+          onPress={() => navigation.navigate('AddBeneficiary')}
+        />
+      </View>
+      <View style={styles.row}>
+        <Button
+          title={'View Beneficiaries'}
+          onPress={() => navigation.navigate('Beneficiaries')}
+        />
+        <Button title={'Clear All'} onPress={clearAll} />
+      </View>
+
       <FlatList
         data={transactions}
         keyExtractor={item => item.id.toString()}
@@ -87,16 +96,20 @@ const styles = StyleSheet.create({
   },
   button: {
     backgroundColor: '#007bff',
-    paddingVertical: 15,
-    paddingHorizontal: 30,
-    borderRadius: 25,
+    paddingVertical: 10,
+    borderRadius: 5,
     marginVertical: 10,
     alignItems: 'center',
-    width: '70%',
+    width: '50%',
+    marginHorizontal: 5,
   },
   buttonText: {
+    fontSize: 12,
     color: '#fff',
     fontWeight: 'bold',
+  },
+  row: {
+    flexDirection: 'row',
   },
 });
 
